@@ -1,0 +1,47 @@
+<div class="card mt-3">
+  <h5 class="card-header">Update Awesome</h5>
+  <div class="card-body">
+    <form [formGroup]="updateAwesomeForm" (ngSubmit)="create()">
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Tag</label>
+        <input type="text" class="form-control col-sm-10" placeholder="Enter Tag" formControlName="tag">
+        <div *ngIf="tag.invalid && tag.touched">
+          <div *ngIf="tag.errors.required">
+            <p class="text-danger">Không được để trống trường này</p>
+          </div>
+          <div *ngIf="tag.errors.minlength">
+            <p class="text-danger">Phải có ít nhất 4 kí tự </p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Url</label>
+        <input type="text" class="form-control col-sm-10" placeholder="Enter Url" formControlName="url">
+        <div *ngIf="url.invalid && url.touched">
+          <div *ngIf="url.errors.required">
+            <p class="text-danger">Không được để trống trường này</p>
+          </div>
+          <div *ngIf="url.errors.minlength">
+            <p class="text-danger">Phải có ít nhất 4 kí tự </p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Description</label>
+        <input type="text" class="form-control col-sm-10" placeholder="Enter Description" formControlName="descriptions">
+        <div *ngIf="descriptions.invalid && descriptions.touched">
+          <div *ngIf="descriptions.errors.required">
+            <p class="text-danger">Không được để trống trường này</p>
+          </div>
+          <div *ngIf="descriptions.errors.minlength">
+            <p class="text-danger">Phải có ít nhất 4 kí tự </p>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button  class="btn btn-dark ml-lg-5" routerLink="/awesomes">Cancel</button>
+      <button class="btn btn-danger ml-lg-5" (click)="delete(id)">Delete</button>
+    </form>
+  </div>
+</div>
+

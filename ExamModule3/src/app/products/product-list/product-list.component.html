@@ -1,0 +1,23 @@
+<div class="card mt-3">
+  <h5 class="card-header">My Awesome List</h5>
+  <div class="card-body">
+    <button class="btn btn-success" routerLink="create">Create</button><hr>
+    <p class="text-danger">Có tất cả {{count}} Awesome :</p>
+    <table class="table table-bordered mt-3">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">Tag</th>
+        <th scope="col">URL</th>
+        <th scope="col">Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let awesome of awesomes">
+        <td><a [routerLink]="['/awesomes' , awesome.id ]" >{{awesome.tag}}</a></td>
+        <td>{{awesome.url}}</td>
+        <td>{{awesome.descriptions}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
